@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "seatfinder",
+  "version": "${version}",
+  "name": "SeatFinder",
+  "description": "",
+  "authors": [
+    "Jacrispys"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/SeatFinder/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.jacrispys.seatfinder.client.SeatFinderClient"
+    ],
+    "main": [
+      "dev.jacrispys.seatfinder.SeatFinder"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.4",
+    "fabric": "*",
+    "minecraft": "1.18.2"
+  }
+}
