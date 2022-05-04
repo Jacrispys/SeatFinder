@@ -22,24 +22,23 @@ public class SeatFinderClient implements ClientModInitializer {
     private boolean cooldown;
     private long cooldownTime = 0;
 
-
     @Override
     public void onInitializeClient() {
         ClientTickEvents.END_WORLD_TICK.register((world) -> {
             if (cooldown) {
-                if ((System.currentTimeMillis() - cooldownTime) < 3001) {
+                if ((System.currentTimeMillis() - cooldownTime) < 300) {
                     return;
                 }
                 cooldown = false;
-                return;
             }
+
             MinecraftClient client = MinecraftClient.getInstance();
             assert client.player != null;
             world.getPlayers().forEach(player -> {
-                if (player.getBlockX() == 0 && player.getBlockZ() == 0 && (player.getBlockY() < 202 && player.getBlockY() > 198)) {
+                if (player.getBlockX() == 0 && player.getBlockZ() == 0 && (player.getBlockY() < 151 && player.getBlockY() > 149)) {
+                    getSign(player.getEntityName().toLowerCase());
                     cooldownTime = System.currentTimeMillis();
                     cooldown = true;
-                    getSign(player.getEntityName().toLowerCase());
                 }
             });
 
@@ -77,7 +76,7 @@ public class SeatFinderClient implements ClientModInitializer {
 
             }
             if(!teleported) {
-                client.player.sendChatMessage("/hypixelcommand:tp " + ign + " 0 100 0");
+                client.player.sendChatMessage("/hypixelcommand:tp " + ign + " -2.5 150 26.5");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
