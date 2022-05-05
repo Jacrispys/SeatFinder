@@ -1,0 +1,6 @@
+accessWidener   v1  named
+# Widening access to ClientChunkMap
+accessible class net/minecraft/client/world/ClientChunkManager$ClientChunkMap
+extendable class net/minecraft/client/world/ClientChunkManager$ClientChunkMap
+accessible field net/minecraft/client/world/ClientChunkManager$ClientChunkMap chunks Ljava.util.concurrent.atomic;
+accessible field net/minecraft/client/world/ClientChunkManager chunks Lnet.minecraft.client.world.ClientChunkManager.ClientChunkMap;

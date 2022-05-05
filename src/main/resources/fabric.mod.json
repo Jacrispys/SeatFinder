@@ -19,6 +19,10 @@
       "dev.jacrispys.seatfinder.SeatFinder"
     ]
   },
+  "mixins": [
+    "seatfinder.mixins.json"
+  ],
+  "accessWidener": "seatfinder.accesswidener",
   "depends": {
     "fabricloader": ">=0.14.4",
     "fabric": "*",
