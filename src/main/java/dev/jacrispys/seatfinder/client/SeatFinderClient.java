@@ -14,6 +14,8 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.WorldChunk;
 import org.spongepowered.asm.mixin.Mixin;
 
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
 
@@ -28,7 +30,7 @@ public class SeatFinderClient implements ClientModInitializer {
     public void onInitializeClient() {
         ClientTickEvents.END_WORLD_TICK.register((world) -> {
             if (cooldown) {
-                if ((System.currentTimeMillis() - cooldownTime) < 3001) {
+                if ((System.currentTimeMillis() - cooldownTime) < 150) {
                     return;
                 }
                 cooldown = false;
@@ -48,7 +50,7 @@ public class SeatFinderClient implements ClientModInitializer {
 
     }
 
-    private void getSign(String ign) {
+    public static void getSign(String ign) {
         try {
             MinecraftClient client = MinecraftClient.getInstance();
             assert client.player != null;
@@ -59,6 +61,7 @@ public class SeatFinderClient implements ClientModInitializer {
                 AtomicReferenceArray<WorldChunk> chunks = chunkMap.getLoadedChunks();
                 boolean teleported = false;
                 for (int i = 0; i < chunks.length(); i++) {
+                    if(teleported) continue;
                     Chunk chunk = chunks.get(i);
                     if (chunk == null) {
                         continue;

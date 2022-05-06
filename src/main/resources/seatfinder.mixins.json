@@ -9,6 +9,7 @@
   },
   "mixins": [
     "ClientChunkMapAccessor",
+    "MixinChatHud",
     "MixinGetClientChunks"
   ]
 }
