@@ -103,14 +103,14 @@ public class VoteEvent {
     private void accept(AbstractClientPlayerEntity player) {
         BlockPos loc = player.getBlockPos().down(1);
         Map<BlockPos, String> posMap = new HashMap<>();
-        posMap.put(new BlockPos(-7, 125, 12), "vote1");
-        posMap.put(new BlockPos(-5, 125, 12), "vote2");
-        posMap.put(new BlockPos(-3, 125, 12), "vote3");
-        posMap.put(new BlockPos(-1, 125, 12), "vote4");
-        posMap.put(new BlockPos(1, 125, 12), "vote5");
-        posMap.put(new BlockPos(-5, 125, 15), "vote6");
-        posMap.put(new BlockPos(-3, 125, 15), "vote7");
-        posMap.put(new BlockPos(-1, 125, 15), "vote8");
+        posMap.put(new BlockPos(-7, 122, 12), "vote1");
+        posMap.put(new BlockPos(-5, 122, 12), "vote2");
+        posMap.put(new BlockPos(-3, 122, 12), "vote3");
+        posMap.put(new BlockPos(-1, 122, 12), "vote4");
+        posMap.put(new BlockPos(1, 122, 12), "vote5");
+        posMap.put(new BlockPos(-5, 122, 15), "vote6");
+        posMap.put(new BlockPos(-3, 122, 15), "vote7");
+        posMap.put(new BlockPos(-1, 122, 15), "vote8");
 
         String voteNumber = posMap.getOrDefault(loc, null);
 
