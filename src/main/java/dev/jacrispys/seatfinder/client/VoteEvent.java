@@ -24,7 +24,7 @@ public class VoteEvent {
             if (isVotePeriod) {
                 world.getPlayers().forEach(this::accept);
                 if (cooldown) {
-                    if ((System.currentTimeMillis() - cooldownTime) < 500) {
+                    if ((System.currentTimeMillis() - cooldownTime) < 750) {
                         return;
                     }
                     cooldown = false;
